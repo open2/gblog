@@ -430,13 +430,13 @@ function get_page_uri($uri) {
 
          // 퍼마링크를 사용하지 않을 때
         case 'none':
-            $uri = eregi_replace("[\?&]page=([0-9]+)", "", $uri);
+            $uri = preg_replace("/[\?&]page=([0-9]+)/i", "", $uri);
             $uri.= "&page=";
             break;
 
         // 퍼마링크를 숫자로 사용할 때
         case 'numeric':
-            $uri = eregi_replace("page/([0-9]+)","", $uri);
+            $uri = preg_replace("/page\/([0-9]+)/i","", $uri);
             if (substr($uri, strlen($uri)-1, 1) != '/') $uri .= '/';
             $uri .= "page/";
             break;
