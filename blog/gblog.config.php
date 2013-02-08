@@ -64,4 +64,11 @@ if ($g4[bitly_key])
     $gb4[bitly_key] = $g4[bitly_key];
 else
     $gb4[bitly_key] = "";   // 지블로그에만 적용하려면 요기에 bit.ly key를 넣으면 됩니다.
+
+// 불당팩이 아닌 경우 lib을 읽어들인다
+if ($g4['b4_version'] == "") {
+    include_once("$g4[path]/lib/b4.lib.php");
+    include_once("$g4[path]/lib/thumb.lib.php");
+    echo "<script type='text/javascript' src='$g4[path]/js/b4.common.js></script>";
+}
 ?>
