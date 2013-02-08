@@ -97,7 +97,7 @@ function thumbnail($file_name, $width=0, $height=0, $is_create=false, $is_crop=2
     $dir = dirname(file_path($file_name));
     $file = basename($file_name);
 
-    $thumb_dir = $dir . "/thumb";
+    $thumb_dir = $dir . "/_thumb";
 
     // 썸네일을 저장할 디렉토리
     $thumb_path = $thumb_dir . "/" . $width . "x" . $height . "_" . $quality;
@@ -117,8 +117,9 @@ function thumbnail($file_name, $width=0, $height=0, $is_create=false, $is_crop=2
     $size = @getimagesize($source_file);
     $size_org = $size;
 
-    // animated gif에 대해서 썸을 만들고 싶으면 코멘트를 풀어주세요. 아래코드는 cpu와 disk access를 크게 유발할 수 있습니다
-    //if ($size[2] == IMG_GIF && is_ani_gif($file_name)) return;
+    // animated gif의 경우 return
+    if ($size[2] == IMG_GIF && is_animated_gif($file_name)) 
+        return $source_file;
 
     // 이미지 파일이 없는 경우
     if (!$size[0]) {
@@ -186,8 +187,22 @@ function thumbnail($file_name, $width=0, $height=0, $is_create=false, $is_crop=2
     else if ($size[2] == 2) {
         // php.net에서 - As of PHP 5.1.3, if you are dealing with corrupted JPEG images 
         //               you should set the 'gd.jpeg_ignore_warning' directive to 1 to ignore warnings that could mess up your code.
+        // 어지간한 경고는 무시하는데, 메모리 부족이 나면 그냥 쥑어 버립니다. 아무런 워닝이나 오류도 없이. 상황종료
         @ini_set('gd.jpeg_ignore_warning', 1);
-        $source = @imagecreatefromjpeg($source_file);
+
+        // $msize=php의 할당메모리, $isize=24bit plain에서 본 필요 메모리
+        // 메모리가 부족하면 워닝이고 뭐고간에 그냥 죽으므로, 썸을 못 만든다.
+        // 그런데, 5.2.x 이전에는 컴파일 옵션에 따라서 memory_get_usage() 함수가 없기도 하다. 그때는 볼골복이다.
+        /* 이거저거 다 해본 답은... 죽으면, 호스팅 회사에 말해서 php 버젼업 하는게 유일한 해결 방안
+        if (function_exists('memory_get_usage)) {
+            $msize = memory_get_usage();
+            $isize = $size['bits'] / 8 * $size[0] * $size[1];
+            if ($isize > $msize)
+                return $file_name;
+        }
+        */
+
+        $source = imagecreatefromjpeg($source_file);
         // jpeg 파일의 오류가 나왔을 때, 워터마크가 있으면 오류생성? - 워터마크 없으면 원본을 그냥 사용 (빈도가 낮으니까)
         if (!$source) {
             if (trim($watermark) && count($watermark) > 0)
@@ -227,16 +242,9 @@ function thumbnail($file_name, $width=0, $height=0, $is_create=false, $is_crop=2
         }
         else
             return str_replace($real_dir, "", $source_file);
-        
 
-        /*
-        if ($height && $height > $size[1]) {
-            $size[1] = $height;
-            $size[0] = (int) $width*($size[0]/$size[1]);
-        }
-        */
-
-        $target = imagecreatetruecolor($size[0], $size[1]);
+        //$target = imagecreatetruecolor($size[0], $size[1]);
+        $target = create_image($size[0], $size[1], $size[2]); 
         imagecopyresampled($target, $source, 0, 0, 0, 0, $size[0], $size[1], $size0, $size1);
         $source = $target;
         unset($target);
@@ -250,22 +258,26 @@ function thumbnail($file_name, $width=0, $height=0, $is_create=false, $is_crop=2
                 if ($height > $size[1]) {
                     $x = $size[0];
                     $tmp_y = $size[1];
-                    $target = imagecreatetruecolor($x, $tmp_y);
+                    //$target = imagecreatetruecolor($x, $tmp_y);
+                    $target = create_image($x, $tmp_y, $size[2]); 
                     imagecopyresampled($target, $source, 0, 0, 0, 0, $x, $tmp_y, $size[0], $size[1]);
                 } else {
                     if ($is_crop) { // 넘치는 높이를 잘라줘야 합니다
                         $x = $size[0];
                         $y = $size[1];
                         $tmp_y = $height;
-                        $target = imagecreatetruecolor($x, $tmp_y);
-                        $tmp_target = imagecreatetruecolor($x, $tmp_y);
+                        //$target = imagecreatetruecolor($x, $tmp_y);
+                        //$tmp_target = imagecreatetruecolor($x, $tmp_y);
+                        $target = create_image($x, $tmp_y, $size[2]); 
+                        $tmp_target = create_image($x, $tmp_y, $size[2]); 
                         imagecopyresampled($tmp_target, $source, 0, 0, 0, 0, $x, $y, $size[0], $size[1]);
                         imagecopy($target, $tmp_target, 0, 0, 0, 0, $x, $tmp_y);
                     } else {
                         $y = $height;
                         $rate = $y / $size[1];
                         $x = (int)($size[0] * $rate);
-                        $target = imagecreatetruecolor($x, $y);
+                        //$target = imagecreatetruecolor($x, $y);
+                        $target = create_image($x, $y, $size[2]); 
                         imagecopyresampled($target, $source, 0, 0, 0, 0, $x, $y, $size[0], $size[1]);
                     }
                 }
@@ -278,14 +290,17 @@ function thumbnail($file_name, $width=0, $height=0, $is_create=false, $is_crop=2
                         if ($is_crop) {     // 높이가 작으므로 이미지의 폭만 crop
                             $rate = $y / $size[1];
                             $tmp_x = (int)($size[0] * $rate);
-                            $target = imagecreatetruecolor($x, $y);
-                            $tmp_target = imagecreatetruecolor($tmp_x, $y);
+                            //$target = imagecreatetruecolor($x, $y);
+                            //$tmp_target = imagecreatetruecolor($tmp_x, $y);
+                            $target = create_image($x, $y, $size[2]); 
+                            $tmp_target = create_image($tmp_x, $y, $size[2]); 
                             imagecopyresampled($tmp_target, $source, 0, 0, 0, 0, $tmp_x, $y, $size[0], $size[1]);
                             // copy하는 위치가 이미지의 수평중심이 되게 조정
                             $src_x = (int)(($tmp_x - $x)/2);
                             imagecopy($target, $tmp_target, 0, 0, $src_x, 0, $x, $y);
                         } else {
-                            $target = imagecreatetruecolor($x, $tmp_y);
+                            //$target = imagecreatetruecolor($x, $tmp_y);
+                            $target = create_image($x, $tmp_y, $size[2]); 
                             imagecopyresampled($target, $source, 0, 0, 0, 0, $x, $tmp_y, $size[0], $size[1]);
                         }
                     } else {
@@ -293,28 +308,34 @@ function thumbnail($file_name, $width=0, $height=0, $is_create=false, $is_crop=2
                         if ($is_crop == 1) {          // 좌측에서 부터
                             $tmp_x = (int)$size[0];
                             $tmp_y = (int)$size[1];
-                            $target = imagecreatetruecolor($x, $tmp_y);
+                            //$target = imagecreatetruecolor($x, $tmp_y);
+                            $target = create_image($x, $tmp_y, $size[2]); 
                             imagecopyresampled($target, $source, 0, 0, 0, 0, $x, $tmp_y, $x, $tmp_y);
                         } else if ($is_crop == 2) {   // 중간에서
                             $tmp_x = (int)($size[0]/2) - (int)($x/2);
                             $tmp_y = (int)$size[1];
-                            $target = imagecreatetruecolor($x, $tmp_y);
+                            //$target = imagecreatetruecolor($x, $tmp_y);
+                            $target = create_image($x, $tmp_y, $size[2]); 
                             imagecopyresampled($target, $source, 0, 0, $tmp_x, 0, $x, $tmp_y, $x, $tmp_y);
                         } else {                      // 생각없이 썸 생성
-                            $target = imagecreatetruecolor($x, $tmp_y);
+                            //$target = imagecreatetruecolor($x, $tmp_y);
+                            $target = create_image($x, $tmp_y, $size[2]); 
                             imagecopyresampled($target, $source, 0, 0, 0, 0, $x, $tmp_y, $size[0], $size[1]);
                     }
                     }
                 } else {
                     if ($is_crop) {
-                        $target = imagecreatetruecolor($x, $y);
-                        $tmp_target = imagecreatetruecolor($x, $tmp_y);
+                        //$target = imagecreatetruecolor($x, $y);
+                        //$tmp_target = imagecreatetruecolor($x, $tmp_y);
+                        $target = create_image($x, $y, $size[2]); 
+                        $tmp_target = create_image($x, $tmp_y, $size[2]); 
                         imagecopyresampled($tmp_target, $source, 0, 0, 0, 0, $x, $tmp_y, $size[0], $size[1]);
                         imagecopy($target, $tmp_target, 0, 0, 0, 0, $x, $y);
                     } else {
                         $rate = $y / $size[1];
                         $tmp_x = (int)($size[0] * $rate);
-                        $target = imagecreatetruecolor($tmp_x, $y);
+                        //$target = imagecreatetruecolor($tmp_x, $y);
+                        $target = create_image($tmp_x, $y, $size[2]); 
                         imagecopyresampled($target, $source, 0, 0, 0, 0, $tmp_x, $y, $size[0], $size[1]);
                     }
                 }
@@ -330,7 +351,8 @@ function thumbnail($file_name, $width=0, $height=0, $is_create=false, $is_crop=2
                 $tmp_y = (int)($size[1] * $rate);
             }
             
-            $target = imagecreatetruecolor($x, $tmp_y);
+            //$target = imagecreatetruecolor($x, $tmp_y);
+            $target = create_image($x, $tmp_y, $size[2]); 
             imagecopyresampled($target, $source, 0, 0, 0, 0, $x, $tmp_y, $size[0], $size[1]);
         }
     } 
@@ -339,21 +361,25 @@ function thumbnail($file_name, $width=0, $height=0, $is_create=false, $is_crop=2
         if ($height > $size[1]) {   // 썸네일의 높이보다 $height가 더 크면, 이미지의 높이로 썸네일을 만듭니다 (확대된 썸은 허용않음)
             $y = $size[1];
             $tmp_x = $size[0];
-            $target = imagecreatetruecolor($tmp_x, $y);
+            //$target = imagecreatetruecolor($tmp_x, $y);
+            $target = create_image($tmp_x, $y, $size[2]); 
             imagecopyresampled($target, $source, 0, 0, 0, 0, $tmp_x, $y, $size[0], $size[1]);
         } else {
             $x = $size[0];
             $y = $height;
             $tmp_y = $size[1];
             if ($is_crop) {
-                $target = imagecreatetruecolor($x, $y);
-                $tmp_target = imagecreatetruecolor($x, $tmp_y);
+                //$target = imagecreatetruecolor($x, $y);
+                //$tmp_target = imagecreatetruecolor($x, $tmp_y);
+                $target = create_image($x, $y, $size[2]); 
+                $tmp_target = create_image($x, $tmp_y, $size[2]); 
                 imagecopyresampled($tmp_target, $source, 0, 0, 0, 0, $x, $tmp_y, $size[0], $size[1]);
                 imagecopy($target, $tmp_target, 0, 0, 0, 0, $x, $tmp_y);
             } else {
                 $rate = $y / $size[1];
                 $tmp_x = (int)($size[0] * $rate);
-                $target = imagecreatetruecolor($tmp_x, $y);
+                //$target = imagecreatetruecolor($tmp_x, $y);
+                $target = create_image($tmp_x, $y, $size[2]); 
                 imagecopyresampled($target, $source, 0, 0, 0, 0, $tmp_x, $y, $size[0], $size[1]);
             }
         }
@@ -492,6 +518,25 @@ function thumbnail($file_name, $width=0, $height=0, $is_create=false, $is_crop=2
 
     return str_replace($real_dir, "", $thumb_file);
 }
+
+
+// $png이면, 투명한 배경을 생성 
+function create_image($w, $h, $img_type) { 
+
+      $target = imagecreatetruecolor($w, $h); 
+
+      if ($img_type == 3) { 
+          imagealphablending($target, false); 
+          imagesavealpha($target,true); 
+          $transparent = imagecolorallocatealpha($target, 255, 255, 255, 127); 
+          imagefilledrectangle($target, 0, 0, $w, $h, $transparent); 
+      } else { 
+          ; 
+      } 
+
+      return $target; 
+} 
+
 
 // php imagefilter for PHP4 - http://mgccl.com/2007/03/02/imagefilter-function-for-php-user-without-bundled-gd
 //
@@ -933,51 +978,41 @@ echo $filename;
 }
 
 // animated gif 파일인지를 확인
-// http://kr2.php.net/imagecreatefromgif
-/*
-function is_ani_gif($filename)
-{
-        $filecontents=file_get_contents($filename);
-
-        $str_loc=0;
-        $count=0;
-        while ($count < 2) # There is no point in continuing after we find a 2nd frame
-        {
-
-                $where1=strpos($filecontents,"\x00\x21\xF9\x04",$str_loc);
-                if ($where1 === FALSE)
-                {
-                        break;
-                }
-                else
-                {
-                        $str_loc=$where1+1;
-                        $where2=strpos($filecontents,"\x00\x2C",$str_loc);
-                        if ($where2 === FALSE)
-                        {
-                                break;
-                        }
-                        else
-                        {
-                                if ($where1+8 == $where2)
-                                {
-                                        $count++;
-                                }
-                                $str_loc=$where2+1;
-                        }
-                }
-        }
-
-        if ($count > 1)
-        {
-                return(true);
-        }
-        else
-        {
-                return(false);
-        }
-}
-*/
+// http://stackoverflow.com/questions/280658/can-i-detect-animated-gifs-using-php-and-gd
+function is_animated_gif( $filename ) 
+{ 
+    $raw = file_get_contents( $filename ); 
+ 
+    $offset = 0; 
+    $frames = 0; 
+    while ($frames < 2) 
+    { 
+        $where1 = strpos($raw, "\x00\x21\xF9\x04", $offset); 
+        if ( $where1 === false ) 
+        { 
+                break; 
+        } 
+        else 
+        { 
+                $offset = $where1 + 1; 
+                $where2 = strpos( $raw, "\x00\x2C", $offset ); 
+                if ( $where2 === false ) 
+                { 
+                        break; 
+                } 
+                else 
+                { 
+                        if ( $where1 + 8 == $where2 ) 
+                        { 
+                                $frames ++; 
+                        } 
+                        $offset = $where2 + 1; 
+                } 
+        } 
+    } 
+ 
+    return $frames > 1; 
+} 
 
 // psd로 썸네일 만들기 - http://www.phpclasses.org/browse/file/17603.html
 

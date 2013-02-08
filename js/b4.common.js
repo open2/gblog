@@ -190,21 +190,21 @@ if (typeof(B4_COMMON_JS) == 'undefined') { // 한번만 실행
     		js_url += "</"+"script> \n"; 
 
       // zzzz님이 알려주셨어요. 감솨 ^^
-    	var j1_url = "<script language='JavaScript1.2'> \n"; 
+    	var j1_url = "<script type/text='JavaScript'> \n"; 
     		j1_url += "<!-- \n"; 
     		j1_url += "function _ReSize() { ";
     		j1_url += "   $get = document.getElementById('_img').style; ";
         j1_url += "   var ratio = document.getElementById('_img').width / document.getElementById('_img').height; ";
     		j1_url += "   $get.width = document.body.clientWidth; ";
     		j1_url += "   $get.height = document.body.clientWidth / ratio; ";
-    		j1_url += "   setTimeout('_ReSize()', 100); ";
+    		j1_url += "   window.setTimeout('_ReSize()', 100); ";
     		j1_url += "} ";
     		j1_url += "//--> \n"; 
     		j1_url += "</"+"script> \n"; 
 
-    	var j2_url = "<script language='JavaScript1.2'> \n"; 
+    	var j2_url = "<script type/text='JavaScript'> \n"; 
     		j2_url += "<!-- \n"; 
-    		j2_url += "_ReSize(); ";
+    		j2_url += "window.onresize=_ReSize; ";
     		j2_url += "//--> \n"; 
     		j2_url += "</"+"script> \n"; 
     
@@ -252,63 +252,71 @@ if (typeof(B4_COMMON_JS) == 'undefined') { // 한번만 실행
     
     }
 
-// bit.ly api를 이용해서 단축 경로를 생성한다
-function get_bitly_g4(tid, bo_table, wr_id) {
-
-  // set up default options 
-  wr_url = g4_url + '/bbs/board.php?bo_table=' + bo_table + '&wr_id=' + wr_id;
-  wr_url_encode = escape(wr_url);
-
-  var defaults = {
-    version:    '2.0.1', 
-    login:      bitly_id, 
-    apiKey:     bitly_key, 
-    history:    '0', 
-    longUrl:    wr_url_encode
-  }; 
-
-  // Build the URL to query 
-  var daurl = "http://api.bit.ly/shorten?" 
-    +"version="+defaults.version 
-    +"&longUrl="+defaults.longUrl 
-    +"&login="+defaults.login 
-    +"&apiKey="+defaults.apiKey 
-    +"&history="+defaults.history 
-    +"&format=json&callback=?"; 
-
-    // Utilize the bit.ly API 
-    $.getJSON(daurl, function(data){ 
-
-        var bitly_url = data.results[wr_url].shortUrl;
-
-        // Make a good use of short URL - 화면의 url 정보를 업데이트
-        $(tid).html('<a href='+bitly_url+' target=new>'+bitly_url+'</a>');
-
-        url = g4_path +'/' + g4_bbs +'/g4_bitly_update.php';
-
-        send  = 'bo_table=' + bo_table;
-        send += '&wr_id=' + wr_id;
-        send += '&bitly_url=' + bitly_url;
-
-        $.ajax({
-        type: 'POST',
-        url: url,
-        data: send,
-        cache: false,
-        async: false,
-        success: function(result) {
-
-            result      = result.split(',');
-            msg_num     = result[0];
-
-            if (msg_num !== '000')
-                alert('잘못된 접근입니다.\n\n'+result); 
-            }
-
+    // bit.ly api를 이용해서 단축 경로를 생성한다
+    function get_bitly_g4(tid, bo_table, wr_id) {
+    
+      // set up default options 
+      wr_url = g4_url + '/bbs/board.php?bo_table=' + bo_table + '&wr_id=' + wr_id;
+      wr_url_encode = escape(wr_url);
+    
+      var defaults = {
+        version:    '2.0.1', 
+        login:      bitly_id, 
+        apiKey:     bitly_key, 
+        history:    '0', 
+        longUrl:    wr_url_encode
+      }; 
+    
+      // Build the URL to query 
+      var daurl = "http://api.bit.ly/shorten?" 
+        +"version="+defaults.version 
+        +"&longUrl="+defaults.longUrl 
+        +"&login="+defaults.login 
+        +"&apiKey="+defaults.apiKey 
+        +"&history="+defaults.history 
+        +"&format=json&callback=?"; 
+    
+        // Utilize the bit.ly API 
+        $.getJSON(daurl, {}, function(data){ 
+    
+            var bitly_url = data.results[wr_url].shortUrl;
+    
+            // Make a good use of short URL - 화면의 url 정보를 업데이트
+            $(tid).html('<a href='+bitly_url+' target=new>'+bitly_url+'</a>');
+    
+            url = g4_path +'/' + g4_bbs +'/g4_bitly_update.php';
+    
+            send  = 'bo_table=' + bo_table;
+            send += '&wr_id=' + wr_id;
+            send += '&bitly_url=' + bitly_url;
+    
+            $.ajax({
+            type: 'POST',
+            url: url,
+            data: send,
+            cache: false,
+            async: false,
+            success: function(result) {
+    
+                result      = result.split(',');
+                msg_num     = result[0];
+    
+                if (msg_num !== '000')
+                    alert('잘못된 접근입니다.\n\n'+result); 
+                }
+    
+            });
+    
         });
- 
-    });
+    
+    
+    };
+    
+    // 신고해지 창
+    function win_unsingo(url)
+    {
+        win_open(url, "unsingo", "left=20, top=20, width=608, height=350, scrollbars=0");
+    }
 
-};
 
 }
