@@ -1,0 +1,248 @@
+/* 오리주둥이 코맨트 - pt로 변환하려면 3씩 숫자적게 출력을 목적으로 하지않으므로 px유지*/
+body { font-family:dotum; font-size:12px; color:#505050; text-align:center; margin:0; padding:0; }
+td { font-family:dotum; font-size:12px; color:#505050; margin:0; }
+/* 오리주둥이 추가 - 모든 li 뷸렛 삭제. 필요할 경우 각 ID에서 리스트 스타일 사용하거나 리스트 스타일이미지로 뷸렛대체
+ 기본적으로 모든 플롯을 레프트 정렬 해놓았으므로 정석 li 출력이 필요할 경우 각 ID와 Class에서 수정하고 이 선언은 주석처리 */
+/*ul li { list-style:none; }*//*float:left;*/ 
+/* 오리주둥이 추가 - 모든 이미지 링크시 보더값 0. 필요시 각 ID에서 보더값 설정 */
+img { border:0; }
+
+a:link, a:visited, a:active { text-decoration:none; color:#505050; }
+a:hover { text-decoration:underline; }
+
+/*
+	#top, #gblog, #haed, #side, #main, #tail 의 이름을 변경하면
+	스킨이 제대로 출력되지 않을 수 있습니다.
+*/
+
+/* 최상단 레이어 시작 */
+#top { padding-top:10px; margin-bottom:5px; }
+#top_logo { text-align:left; vertical-align:top; }
+#top_menu { text-align:right; vertical-align:middle; }
+/* 최상단 레이어 끝 */
+
+
+
+/* 전체 레이어 시작 */
+#gblog { width:800px; margin:0 10 10 10; text-align:left; }
+/* 전체 레이어 끝 */
+
+
+
+/* 상단 레이어 시작 */
+#head { background-color: #A3B7C6; width:100%; height:100px; margin-bottom:5px; }
+#head table { width:97%; margin-top:20px; }
+#head .blog_name { font-weight:bold; font-size:17px; color:#FFFFFF; }
+#head .head_menu { font-weight:bold; font-size:12px; color:#FFFFFF; }
+/* 상단 레이어 끝 */
+
+
+/* 상단 작성자 시작 */
+#head_menu { width:100%; height:30px; margin-bottom:5px; color:#BEBEBE; background:#404040; text-align:right; }
+#head_menu table { margin-top:5px; }
+#head_menu .button { font-family:Dotum; font-size:11px; line-height:18px; }
+#head_menu .button a:hover   { text-decoration:none; color:#fff; }
+#head_menu .button a:link    { text-decoration:none; color:#fff; }
+#head_menu .button a:visited { text-decoration:none; color:#fff; }
+#head_menu .button a:active  { text-decoration:none; color:#fff; }
+/* 상단 작성자 끝 */
+
+
+/*오리주둥이 추가 - 프로필 이미지 하단 프로필 출력 div*/
+#profile{ width: 100%; border:1px solid #ECECEC; background:#FFFFFF; } 
+#profile ul{ list-style:none; width: 100%; padding:3px 0 3px 0; margin: 0; float: left; font: 11px dotum; } 
+#profile ul li{ list-style:none; padding:3px 0 3px 5px; } 
+#profile ul li a{ float: left; font-family: dotum,tahoma ; font-size:11px; color: #000000; text-decoration: none; } 
+#profile ul li a:hover{ color: #FFFFFF; font-weight: bold; } 
+
+
+
+/* 사이드바 레이어 시작 */
+.sidebar { margin-bottom:10px;}
+.subject { font-weight:bold; margin-left:5px; margin-bottom:5px; }
+.list { list-style:none; margin:0; padding:0; /*width:100%;*/ line-height:22px; }
+.list_category { list-style:none; margin:0; padding:0; line-height:22px; }
+.list_post { list-style:none; margin:0; padding:0; line-height:22px; }
+.list_comment { list-style:none; margin:0; padding:0; }
+.list_trackback { list-style:none; margin:0; padding:0; }
+.list_monthly { list-style:none; font:11px tahoma; margin:0; padding:0; line-height:16px; }
+.list_link { list-style:none; font:bold 12px dotum; color:#000000; margin:0; padding:0; line-height:22px; }
+.list_link_sub { list-style:none; font:normal 11px dotum; color:#505050; margin:0; padding:0; line-height:16px; }
+.list_visit_today { list-style:none; font:11px tahoma; color:#FFFFFF; margin:0; padding:0; line-height:18px; }
+.list_visit_yesterday { list-style:none; font:11px tahoma; color:#FFFFFF; margin:0; padding:0; line-height:18px; }
+.list_visit_total { list-style:none; font:11px tahoma; color:#FFFFFF; margin:0; padding:0; line-height:18px; }
+.sidebar_date { font-size:10px; color:#B8B8B8; margin-bottom:5px; }
+.title { font-family:tahoma,dotum; font-size:11px; font-weight:bold; color:#000000; padding-left:5px; }
+
+#feed { text-align:center; }
+
+#sidebar_top { clear:both; }
+#sidebar_bottom { clear:both; }
+
+.sidebar { width:195px; position:relative; }
+
+.tag_cloud { margin:0px; padding:0px; list-style:none; text-align:justify; line-height:20px; }
+.tag_cloud_1 { display:inline; font:bold 12px dotum; padding:0px; margin:0 5 0 0; background:#EEEEEE; }
+.tag_cloud_2 { display:inline; font:bold 12px dotum; color:#75B200; padding:0px; margin:0 5 0 0; }
+.tag_cloud_3 { display:inline; font:12px dotum; color:#53B8FF; padding:0px; margin:0 5 0 0; }
+.tag_cloud_4 { display:inline; font:bold 12px dotum; color:#E45B00; padding:0px; margin:0 5 0 0; }
+.tag_cloud_5 { display:inline; font:bold 16px dotum; color:#00AADB; padding:0px; margin:0 5 0 0; background:#F1F1F1; }
+
+
+
+/* 오리주둥이 추가 - 캘린더 설정을 위한 css */
+#calendar_day { text-align:center; }
+
+#calendar_day th { font:12px dotum; } 
+#calendar_day td { font:11px tahoma; width:20px; height:20px; text-align:center; } 
+#calendar_day .spot_today { color:#FFFFFF; background:#53B8FF; padding:0 2px } 
+#calendar_day .spot_select { background:#D9D9D9; padding:0 2px; } 
+.spot_post { font-weight:bold; background:url(img/icon_cart.gif) no-repeat left center; } 
+.year { font:bold 11px dotum; }
+.day { font:bold 11px dotum; line-height:18px; text-align:center; height:18px; color:#FFFFFF; background:url(img/img_cal_bg.gif) no-repeat center center; } 
+.day a:link { font:bold 11px dotum; line-height:18px; text-align:center; height:18px; color:#FFFFFF; } 
+.day a:visited { font:bold 11px dotum; line-height:18px; text-align:center; height:18px; color:#FFFFFF; } 
+.day a:active { font:bold 11px dotum; line-height:18px; text-align:center; height:18px; color:#FFFFFF; } 
+.day a:hover { font:bold 11px dotum; line-height:18px; text-align:center; height:18px; color:#FFFFFF; } 
+
+
+/* 사이드바 레이어 끝 */
+
+
+
+/* 메인 컨텐츠 레이어 시작 */
+
+#main #entry { margin-bottom:20px; overflow:auto; word-break:break-all;}
+#main #entry .title { font-size:12px; font-weight:bold; }
+#main #entry .category { font-size:11px; color:#989898; }
+#main #entry .datetime { font-family:tahoma,dotum; font-size:10px; color:#989898; }
+#main #entry .files_01 { font-size:11px; color:#1493AE; line-height:18px; }
+#main #entry .files_02 { font-size:11px; color:#989898; line-height:18px; }
+#main #entry .article { margin-bottom:10px; font-size:12px; color:#505050; line-height:20px; }
+#main #entry .article_02 { margin-bottom:10px; }
+#main #entry .tag { margin-bottom:20px; }
+
+#main #entry .comment { background-color:#FAFAFA; margin-top:20px; padding:10px; border-top:1px solid ; }
+#main #entry .comment_input_form_top { margin-top:10px; padding-top:10px; padding-bottom:10px; font-weight:bold; }
+#main #entry .comment_name { float:left; font-weight:bold; }
+#main #entry .comment_icon { font-family:verdana; font-size:0.8em; color:#ccc; font-weight:normal; text-decoration:none;}
+#main #entry .writer_date { clear:both; color:#CCCCCC; font-size:0.9em; }
+#main #entry .writer_content { clear:both; font-size:1em;word-break:break-all;overflow:hidden; }
+
+#main #entry .or_comment { margin:0 0 0 0 ; padding-left:10px; width:550px; }
+#main #entry .re_comment { margin:0 0 0 20; padding-left:10px; border-left:5px solid ; width:530px; }
+
+#main #entry .input_td { height:25px; width:80px; }
+
+
+#main #entry .trackback { background-color:#FAFAFA; margin-top:10px; padding:10px; border-top:1px solid ; }
+#main #entry .trackback_name { font-weight:bold; height:20px; }
+#main #entry .trackback_date { font-weight:normal; height:20px; font-size:0.8em; color:#ccc;  }
+#main #entry .trackback_content { font-weight:normal; font-size:1em; color:#8C8C8C; height:50px; }
+#main #entry .trackback_button { text-align:right; }
+
+#main #entry_box { margin-bottom:20px; overflow:auto; word-break:break-all; background-color:#FFFFFF;}
+#main #entry_box .search_result { font-weight:bold; font-size:1.2em;  line-height:25px;}
+#main #search_entry { line-height:25px; }
+#main #search_entry .search_datetime { font-size:0.9em; color:#A7A7A7; }
+#main #search_entry .search_title { margin-left:20px; font-size:1.0em; color:#000000; }
+
+#main .move_post { font-size:11px; padding:5px; }
+#main .move_post_date { font:10px tahoma; color:#C9C9C9; }
+
+/* 오리주둥이 추가 - 리스트 번호출력 */
+#main .move_list { font:bold 10px tahoma; color:#000000; padding:5px; text-align:center; margin-top:10px; }
+#main .move_list_spot { font:bold 10px tahoma; color:#D80000; }
+
+#paging { width: 100%; text-align: center; padding:10px; }
+span.paging { padding: 2px 5px 2px 5px; border: 1px solid ; background-color:; text-decoration:none; color:#ccc; }
+a.paging:link, a.paging:visited, a.paging:active { padding: 2px 5px 2px 5px; border: 1px solid #ccc; background-color:#FFFFFF; text-decoration:none; color:#000; }
+a.paging:hover { padding: 2px 5px 2px 5px; border: 1px solid #ccc; background-color:#FFFF99; text-decoration:none; color:#000; }
+
+/* 오리주둥이 추가 - 트랙백 이름/날짜/기능 div */
+#trackback { width: 100%; margin-bottom:20px; } 
+#trackback ul {  list-style:none; width: 100%; padding:0; margin:0; float: left; font: 12px dotum; } 
+#trackback ul li { list-style:none; float:left; padding:0; } 
+#trackback ul li a { float: left; text-decoration: none; } 
+#trackback ul li a:hover { color:#000000; text-decoration:none; }
+#trackback .name_01 { font-size:11px; color: #505050; width:93%; }
+#trackback .name_02 { font-weight: bold; color: #505050; vertical-align:middle; }
+#trackback .date { font-family:tahoma,dotum; font-size:10px; color: #989898; }
+#trackback .function { font-family:tahoma,dotum; font-size:10px; color: #989898; text-align:right; vertical-align:middle; }
+#trackback .function a { font-family:tahoma,dotum; font-size:10px; color: #989898; text-align:right; vertical-align:middle; }
+/* 트랙백 내용은 작은 글자에 약한회색으로 출력- 코맨트와 동일하게 표현하려면 아래의 .cont 주석처리, 또는 파일의 cont 클래스 삭제*/
+#trackback .cont { font: 11px dotum; color:#909090; line-height:20px; }
+#trackback .bottom { margin-bottom:10px; }
+
+/* 오리주둥이 추가 - 코맨트 이름/날짜/기능 div */
+#comment { width: 100%; margin-bottom:10px; } 
+#comment ul { width: 100%; padding:0; margin:0; float: left; font: 12px dotum; } 
+#comment ul li { float:left; padding:0; } 
+#comment ul li a { float: left; text-decoration: none; } 
+#comment ul li a:hover { color:#000000; text-decoration:none; }
+#comment .name_01 {color: #505050; width:60%; }
+#comment .name_02 { font-weight: bold; color: #505050; vertical-align:middle; }
+#comment .date { font-family:tahoma,dotum; font-size:10px; color: #989898; }
+#comment .function { font-family:tahoma,dotum; font-size:10px; color: #989898; text-align:right; vertical-align:middle; width:60%; }
+#comment .function a { font-family:tahoma,dotum; font-size:10px; color: #989898; text-align:right; vertical-align:middle; }
+
+/* 오리주둥이 추가 - 답변코맨트 이름/날짜/기능 div */
+#comment_re { width: 100%; } 
+#comment_re ul { width: 100%; padding:0; margin:0; float: left; font: 12px dotum; } 
+#comment_re ul li {float:left; padding:0; } 
+#comment_re ul li a { float: left; text-decoration: none; } 
+#comment_re ul li a:hover { color:#000000; text-decoration:none; }
+#comment_re .name_01 {color: #505050; width:60%; }
+#comment_re .name_02 { font-weight: bold; color: #505050; vertical-align:middle; }
+#comment_re .date { font-family:tahoma,dotum; font-size:10px; color: #989898; }
+#comment_re .function { font-family:tahoma,dotum; font-size:10px; color: #989898; text-align:right; vertical-align:middle; width:60%; }
+#comment_re .function a { font-family:tahoma,dotum; font-size:10px; color: #989898; text-align:right; vertical-align:middle; }
+
+/* 오리주둥이 추가 - 코맨트 적기 */
+#comment_write { width: 100%; margin-bottom:10px; } 
+#comment_write tr td {font: 12px dotum; height:25px; line-height:25px;} 
+
+.member { font-weight: bold; color: #505050; vertical-align:middle; }
+.guest { font-weight: bold; color: #505050; vertical-align:middle; }
+
+/*오리주둥이 추가 - 컨텐츠 에이리어의 본문 태그구역 TD지정을 위한*/
+.tag_01 { font-size:11px; color:#989898; height:30px; }
+.tag_02 { font-weight:bold; height:30px; }
+/* 메인 컨텐츠 레이어 끝 */
+
+#visit td { font-family:tahoma,dotum; font-size:11px; color:#000000; }
+
+/* 하단 레이어 시작 */
+#tail { width:100%; clear:both; text-align:center; margin-bottom:30px; padding:10px 0; }
+#tail td { font:11px dotum; color:#A0A0A0; text-align:center; }
+
+/* 하단 레이어 끝 */
+
+
+/* 공통 사용 스타일 시작 */
+hr { border:1px solid #EAEAEA; height:1px; }
+.line_block { height:10px; }
+.count_info { font:10px tahoma; color:#56B9CE; }
+.secret { font-size:11px; color:#A7A7A7; }
+/* 공통 사용 스타일 끝 */
+
+/*오리주둥이 추가 -IE7 이전 png용 png ( 멍청한 IE -_-+ ) */
+.png24 {tmp:expression(setPNG24(this));}
+
+/*오리주둥이 추가 */
+.input_search {
+    font-family:dotum,tahoma;
+	background-color:#FFFFFF;
+	border-top:1px solid #999999;
+	border-left:1px solid #999999;
+	border-right:1px solid #DBDBDB;
+	border-bottom:1px solid #DBDBDB;
+	font-size:11px;
+	color:#000000;
+	/*width:100px;*/
+	height:18px;
+}
+
+#tags {
+    line-height:25px;
+}

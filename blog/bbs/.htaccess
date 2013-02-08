@@ -1,0 +1,25 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteRule ^([a-zA-Z0-9_]+)$ index\.php\?mb_id=$1
+RewriteRule ^([a-zA-Z0-9_]+)/([0-9]+)$ index\.php\?mb_id=$1&id=$2
+RewriteRule ^([a-zA-Z0-9_]+)/([0-9]+)/([0-9]+)/([0-9]+)$ index\.php\?mb_id=$1&yyyy=$2&mm=$3&dd=$4
+RewriteRule ^([a-zA-Z0-9_]+)/([0-9]+)/([0-9]+)$ index\.php\?mb_id=$1&yyyy=$2&mm=$3
+RewriteRule ^([a-zA-Z0-9_]+)/tag/([^\/]*)$ index\.php\?mb_id=$1&tag=$2
+RewriteRule ^([a-zA-Z0-9_]+)/category/([^\/]*)$ index\.php\?mb_id=$1&cate=$2
+RewriteRule ^([a-zA-Z0-9_]+)/search/([^\/]*)$ index\.php\?mb_id=$1&search=$2
+RewriteRule ^([a-zA-Z0-9_]+)/rss$ rss\.php\?mb_id=$1
+RewriteRule ^([a-zA-Z0-9_]+)/tags$ tags\.php\?mb_id=$1
+RewriteRule ^([a-zA-Z0-9_]+)/guestbook$ guestbook\.php\?mb_id=$1
+
+RewriteRule ^([a-zA-Z0-9_]+)/page/([0-9]+)$ index\.php\?mb_id=$1&page=$2
+RewriteRule ^([a-zA-Z0-9_]+)/tag/([^\/]*)/page/([0-9]+)$ index\.php\?mb_id=$1&tag=$2&page=$3
+RewriteRule ^([a-zA-Z0-9_]+)/category/([^\/]*)/page/([0-9]+)$ index\.php\?mb_id=$1&cate=$2&page=$3
+RewriteRule ^([a-zA-Z0-9_]+)/search/([^\/]*)/page/([0-9]+)$ index\.php\?mb_id=$1&search=$2&page=$3
+RewriteRule ^([a-zA-Z0-9_]+)/guestbook/page/([0-9]+)$ guestbook\.php\?mb_id=$1&page=$2
+RewriteRule ^([a-zA-Z0-9_]+)/([0-9]+)/page/([0-9]+)$ index\.php\?mb_id=$1&id=$2&page=$3
+RewriteRule ^([a-zA-Z0-9_]+)/([0-9]+)/([0-9]+)/([0-9]+)/page/([0-9]+)$ index\.php\?mb_id=$1&yyyy=$2&mm=$3&dd=$4&page=$5
+RewriteRule ^([a-zA-Z0-9_]+)/([0-9]+)/([0-9]+)/page/([0-9]+)$ index\.php\?mb_id=$1&yyyy=$2&mm=$3&page=$4
+
+RewriteRule ^([a-zA-Z0-9_]+)/preview/(.+)$ index\.php\?mb_id=$1&preview=$2
+</IfModule>

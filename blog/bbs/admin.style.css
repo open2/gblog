@@ -1,0 +1,88 @@
+body { text-align:center; background-color:#efefef; margin:0; padding:0; margin-top:10px; }
+
+.adm_menu { width:150px; height:30px; text-align:center; background-color:#FEF8F0;}
+
+.adm_info { padding:10px; background-color:#efefef; border:1px solid #ccc; margin-left:20px; margin-right:20px; margin-bottom:30px; }
+
+a:link, a:visited, a:active { text-decoration:none; color:#CD7444; }
+a:hover { text-decoration:underline; color:#C15B27; }
+
+.title { font-size:9pt; font-family:굴림; font-weight:bold; color:#616161; }
+
+.btn1 { background-color:#FBF8EE; } 
+
+.col1 { color:#616161; }
+.col2 { color:#868686; }
+
+.pad1 { padding:5px 10px 5px 10px; }
+.pad2 { padding:5px 0px 5px 0px; }
+
+.bgcol1 { background-color:#FBF8EE; padding:5px; }
+.bgcol2 { background-color:#F5F5F5; padding:5px; }
+
+.line1 { background-color:#CCCCCC; height:2px; }
+.line2 { background-color:#CCCCCC; height:1px; }
+
+.list0 { background-color:#FFFFFF; }
+.list1 { background-color:#F8F8F8; }
+
+.bold { font-weight:bold; }
+.center { text-align:center; }
+.right { text-align:right; }
+
+.w99 { width:99%; }
+.ht { height:30px; }
+
+
+.bg_menu1 { height:22px; 
+            padding-left:15px; 
+            padding-right:15px; } 
+.bg_line1 { height:1px; background-color:#EFCA95; } 
+
+.bg_menu2 { height:22px; 
+            padding-left:25px; } 
+.bg_line2 { background-image:url('<?=$g4['admin_path']?>/img/dot.gif'); height:3px; } 
+.dot {color:#D6D0C8;border-style:dotted;}
+
+#csshelp1 { border:0px; background:#FFFFFF; padding:6px; }
+#csshelp2 { border:2px solid #BDBEC6; padding:0px; }
+#csshelp3 { background:#F9F9F9; padding:6px; width:200px; color:#222222; line-height:120%; text-align:left; }
+
+
+/* 전체 레이어 시작 */
+#gblog { width:800px; margin:0 auto; margin-top:0px; padding:10px; text-align:left; border:1px solid #ccc; background-color:#fff; }
+/* 전체 레이어 끝 */
+
+
+
+/* 상단 레이어 시작 */
+#head { width:100%; margin-top:10px; margin-bottom:30px; }
+#head .blog_name { font-weight:bold; font-size:1.5em; color:#fff; }
+#head .head_menu { font-weight:bold; font-size:1.0em; color:#fff; }
+/* 상단 레이어 끝 */
+
+
+
+
+/* 메인 컨텐츠 레이어 시작 */
+#main { width:100%; float:left; }
+
+#paging { width: 100%; text-align: center; padding:10px; }
+span.paging { padding: 2 5 2 5; border: 1px solid #efefef; background-color:#efefef; text-decoration:none; color:#ccc; }
+a.paging:link, a.paging:visited, a.paging:active { padding: 2 5 2 5; border: 1px solid #ccc; background-color:#fff; text-decoration:none; color:#000; }
+a.paging:hover { padding: 2 5 2 5; border: 1px solid #ccc; background-color:#FFFF99; text-decoration:none; color:#000; }
+/* 메인 컨텐츠 레이어 끝 */
+
+
+
+/* 하단 레이어 시작 */
+#tail { width:100%; clear:both; text-align:center; padding-top:10px; padding-bottom:10px; background-color:#efefef; }
+/* 하단 레이어 끝 */
+
+
+/* 공통 사용 스타일 시작 */
+hr { border:1px solid #eaeaea; height:1px; }
+.line_block { height:10px; }
+.count_info { font-size:0.8em; color:#FF6600; }
+.options { font-size:0.9em; color:#A7A7A7; }
+/* 공통 사용 스타일 끝 */

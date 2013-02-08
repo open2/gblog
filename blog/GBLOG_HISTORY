@@ -1,0 +1,1246 @@
+
+
+1.0.0 - 베타 15 (2011년. 09월. 05일)
+
+blog/lib/blog.lib.php
+ 
+- is_utf8 함수 충돌 
+blog/lib/blog.lib.php
+
+
+1.0.0 - 베타 14 (2011년. 05월.24일)
+
+blog/gblog.config.php
+ 
+- rss link 오류
+blog/gblog.config.php
+
+
+1.0.0 - 베타 13 ()
+
+비회원의 captcha 관련해서 문제가 있는데,  
+그부분은 수정에 고민도 필요하고 시간도 없구 해서 중기 과제로 넘깁니다.
+ 
+제 권고 사항은 
+블로그 비회원 코멘트 못달게 하세요. 
+스팸으로 도배 됩니다. ㅎㅎ
+ 
+===
+blog/bbs/adm_delete.php
+ 
+blog/js/blog.js
+ 
+- 코멘트/guestbook에서 cookie 쓰지 않게 수정
+blog/js/blog.js
+ 
+- 블로그 삭제시 게시글/코멘트/트랙백 카운트 재조정 (가끔 있는 일이라)
+blog/bbs/adm_delete.php
+ 
+- 관리자가 블로그 삭제시 관리자 블로그로 이동하는 오류 수정
+blog/bbs/adm_delete.php
+
+
+1.0.0 - 베타 12 ()
+
+blog/bbs/adm_delete.php
+blog/bbs/adm_write.php
+blog/bbs/adm_write_update.php
+blog/bbs/eolin_sync.php (코드삭제)
+blog/bbs/g4_to_gblog.update.php
+blog/bbs/whois.php
+ 
+blog/lib/eolin.lib.php (코드삭제)
+ 
+blog/skin/blog/basic/comment.skin.php
+blog/skin/blog/basic/guestbook_list.skin.php
+blog/skin/blog/basic/sidebar.skin.php
+blog/skin/blog/basic/write.skin.php
+ 
+ 
+- 비회원 상태에서 쿠키관련 코드 삭제 (보안)
+blog/skin/blog/basic/comment.skin.php
+blog/skin/blog/basic/guestbook_list.skin.php
+ 
+- 이올린 서비스 종료에 따른 관련 기능 삭제
+blog/bbs/adm_delete.php
+blog/bbs/adm_write.php
+blog/bbs/adm_write_update.php
+blog/bbs/eolin_sync.php (코드삭제)
+blog/bbs/g4_to_gblog.update.php
+blog/lib/eolin.lib.php (코드삭제)
+blog/skin/blog/basic/write.skin.php
+ 
+- 'link_sub.style.display'은(는) null 이거나 개체가 아닙니다.
+blog/skin/blog/basic/sidebar.skin.php
+ 
+- php_network_getaddresses: getaddrinfo failed: Name or service not known 
+blog/bbs/whois.php
+
+
+1.0.0 - 베타11 (2011년.01월.17일)
+
+adm/blog/blog.php
+adm/blog/sync.php
+ 
+blog/bbs/join_blog.php
+blog/bbs/join_blog_update.php
+ 
+blog/install/sql_gnuboard4_gblog.sql
+ 
+blog/lib/blog.lib.php
+ 
+blog/skin/basic/index.skin.php
+ 
+ 
+ 
+- 관리자가 블로그 게시글 삭제/수정 가능하게
+blog/skin/basic/index.skin.php
+ 
+- 그누보드 보안패치 적용
+blog/lib/blog.lib.php
+ 
+- 그누4에서 회원 삭제시 블로그 회원관리 페이지에서 삭제된 회원이라고 알려주기
+adm/blog/blog.php
+ 
+- 관리자 / 태그카운트 sync 오류
+adm/blog/sync.php
+ 
+- 블로그 생성시 포인트 주는 기능으로 변경 (기존은 차감)
+blog/bbs/join_blog_update.php
+ 
+- 블로그 생성 포인트 데이터타입 수정 (tinyint(4)에서 int(11))
+blog/install/sql_gnuboard4_gblog.sql
+ 
+- 오류수정 (강백호님)
+blog/bbs/join_blog.php
+blog/bbs/join_blog_update.php
+ 
+- 설치프로그램 오류
+blog/install/sql_gnuboard4_gblog.sql
+
+
+1.0.0 - 베타10 (2010년.08월.18일)
+
+blog/skin/blog/basic/index.skin.php
+ 
+- 이미지 파일이 1개만 출력되는 오류
+blog/skin/blog/basic/index.skin.php
+
+
+1.0.0 - 베타9 (2010년.7월.06일)
+
+adm/blog/blog_update.php
+
+blog/bbs/join_blog.php
+
+js/b4.common.js
+
+lib/b4.common.php
+lib/thumb.lib.php
+
+
+
+- 환경설정에서 현재의 profile 이미지를 보여주기
+blog/bbs/join_blog.php
+
+- 불당 resize+thumb 파일누락
+js/b4.common.js
+lib/b4.common.php
+lib/thumb.lib.php
+
+- blog 삭제 오류 
+adm/blog/blog_update.php
+
+
+1.0.0 - 베타8 (2010년.6월.10일)
+
+adm/img/menu700.gif
+ 
+blog/bbs/bitly_update.php
+ 
+blog/js/blog.js
+ 
+ 
+- bit.ly api 자바스크립트 업데이트
+blog/js/blog.js
+ 
+- 파일누락 
+adm/img/menu700.gif
+blog/bbs/bitly_update.php
+
+
+1.0.0 - 베타7 (2010년.6월.9일)
+
+blog/gblog.tail.php
+blog/index.php
+ 
+blog/bbs/visit_list.php
+ 
+blog/skin/basic/tail.skin.php
+ 
+ 
+- 방문자통계 화면에서 최고 관리자가 아니면, ip를 볼 수 없게 (개인정보보호)
+blog/bbs/visit_list.php
+ 
+- gb4_visit 가 등록 안되는 오류 (수정하면서 빼먹었네요...헐~)
+blog/index.php
+ 
+- 프로그램 오류수정 ($gb4[path]/tail.sub.php를 include)
+blog/gblog.tail.php
+ 
+- 프로그램 오류수정 (wrest.js를 두번 include)
+blog/skin/basic/tail.skin.php
+
+
+1.0.0 - 베타6 (2010년.6월.7일)
+
+bit.ly url 때문에, db가 변경되었습니다. 업그레이드를 해주시기 바랍니다.
+ 
+ALTER TABLE `gb4_post` ADD `bitly_url` VARCHAR( 255 ) NOT NULL  
+ 
+bitly api를 보편적인 방법의 php로 구현하는 것은 불가능한 것 같습니다.
+json 관련명령은 php 5.2부터 가능하고, get_file_contents 같은 명령은 안되는 서버가 많습니다.
+fsockopen으로 bit.ly를 접속할 수도 없구요.
+ 
+jQuery의 경우 구현이 표준적이지만 interactive이기 때문에, 글쓸 때 bitly url을 저장하는 것 할 수 없구요.
+bitly 버튼을 달아서 그걸 누를 때마다 보여주거나, 
+페이지를 로딩할 때마다 api 연결을 해서 url을 다시 계산해주는 것은 너무 허술한 방법이구요.
+ 
+jQuery에서 json을 가져온 다음에 ajax로 서버에 업데이트 하는게 현재로는 가장 나은거 같아요.
+물론 이것을 구현하느라 삽질의 신공이 필요했지만 그래도 뿌듯 합니다. ㅋㅋ
+ 
+adm/blog/config.php
+adm/blog/upgrade.php
+ 
+blog/index.php
+ 
+blog/bbs/join_blog_update.php
+blog/install/sql_gnuboard4_gblog.sql 
+blog/js/blog.js
+blog/skin/basic/index.skin.php
+ 
+ 
+ 
+- bit.ly api key 설정
+blog/gblog.config.php
+blog/index.php
+blog/js/blog.js
+blog/skin/basic/index.skin.php
+ 
+- 블로그 기본설정에서 저장후 블로그 화면으로 돌아가는 오류
+blog/bbs/join_blog.php
+ 
+- 퍼머링크 설정 삭제
+adm/blog/config.php
+ 
+참조 
+http://www.blueiblog.com/ko/archives/2029
+
+
+1.0.0 - 베타5 (2010년.6월.3일)
+
+blog/bbs/adm_delete.php
+blog/bbs/adm_write.php
+ 
+blog/js/blog.js
+ 
+blog/lib/blog.lib.php
+ 
+blog/skin/basic/write.skin.php
+ 
+ 
+- 태그를 입력할 때, htmlspecialchars를 넣어주기 (야릇한 짓을 막기 위해)
+blog/lib/blog.lib.php
+ 
+- 글쓰기 할 때, 나의 태그목록+빈도가 높은 태그목록을 보여주기
+blog/bbs/adm_write.php
+blog/skin/basic/write.skin.php
+ 
+- 게시글 삭제할 때, 태그테이블의 카운트도 하나씩 차감
+blog/bbs/adm_delete.php
+ 
+- 프로그램 코드개선 (block으로 보여주는 것을 show, hide, toggle로)
+blog/js/blog.js
+
+
+1.0.0 - 베타4 (2010년.6월.1일)
+
+adm/blog/skin.php
+adm/blog/skin_update.php
+ 
+blog/gblog.confg.php
+ 
+blog/js/blog.js
+ 
+blog/lib/blog.lib.php
+ 
+ 
+
+- 관리자의 스킨관리 코드를 jquery로 변경
+adm/blog/skin.php
+ 
+- 블로그 스킨을 관리자가 사용하지 않게 했을때, 기본 스킨으로 변경
+adm/blog/skin_update.php
+blog/gblog.confg.php
+blog/lib/blog.lib.php
+ 
+- 코멘트 관련 오류
+blog/js/blog.js
+
+
+1.0.0 - 베타3 (2010년.5월.31일)
+
+첨부파일을 블로그에서 표시하기 위해서 gb4_file에 이미지 관련 필드 등을 추가 합니다.
+ 
+ALTER TABLE `gb4_file` ADD `bf_width` INT( 11 ) NOT NULL AFTER `file_size` ,
+ADD `bf_height` INT( 11 ) NOT NULL AFTER `bf_width` ,
+ADD `bf_type` TINYINT( 4 ) NOT NULL AFTER `bf_height` 
+ 
+추천블로그와 추천글 필드, 블로그 포인트 필드를 각각 추가합니다.
+당장은 쓸 일이 없어보여도, 네이버의 파워블로그처럼 뭔가 하려면 필요할 것 같아서요.
+ 
+ALTER TABLE `gb4_blog` ADD `gb_point` INT( 11 ) NOT NULL ;
+ALTER TABLE `gb4_blog` ADD `gb_suggest` TINYINT( 4 ) NOT NULL ;
+ALTER TABLE `gb4_post` ADD `suggest` TINYINT( 4 ) NOT NULL ;
+ 
+지블로그 포인트는 방문자, 읽기, 글쓰기, 코멘트쓰기, 게스트북의 쓰기에 대해서 부여 합니다.
+ 
+ALTER TABLE `gb4_config` ADD `point_visit` INT( 11 ) NOT NULL ,
+ADD `point_view` INT( 11 ) NOT NULL ,
+ADD `point_write` INT( 11 ) NOT NULL ,
+ADD `point_comment` INT( 11 ) NOT NULL ,
+ADD `point_write_guestbook` INT( 11 ) NOT NULL 
+ 
+필드만 추가하고, 실제 코딩은 당분간 하지 않습니다.
+포인트와 연결해서 생각할 부분이 많기 때문 입니다.
+ 
+ 
+adm/upgrade.php
+ 
+blog/index.php
+ 
+blog/bbs/adm_write.php
+blog/bbs/adm_write_update.php
+blog/bbs/download.php
+blog/bbs/g4_to_gblog.update.php
+blog/bbs/join_blog_ update.pjp
+ 
+blog/install/sql_gnuboard4_gblog.sql
+ 
+blog/js/blog.js
+ 
+blog/lib/blog.lib.php
+ 
+blog/skin/basic/index.skin.php 
+blog/skin/basic/head.skin.php
+blog/skin/basic/write.skin.php
+ 
+js/b4.common.js
+ 
+lib/b4.lib.php
+lib/thumb.lib.php 
+ 
+ 
+ 
+- 그누보드에서 gblog로 보낼때, 첨부파일 관련 부분 추가 (현재는 첨부파일을 두고 감)
+blog/bbs/g4_to_gblog.update.php
+ 
+- 댓글 작업후 업데이트 안되는 오류 (잘 되던게 왜 이럴까? ㅠ..ㅠ...)
+blog/js/blog.js 
+ 
+- 첨부파일 이미지에 resize_dica 기능 추가
+blog/skin/basic/index.skin.php
+js/b4.common.js
+lib/b4.lib.php
+lib/thumb.lib.php
+ 
+- 첨부파일이 이미지일때는 보여주기
+blog/lib/blog.lib.php
+blog/skin/basic/index.skin.php
+ 
+- 파일첨부 기능 복구 (기존의 guploader는 삭제)
+blog/index.php
+blog/bbs/adm_write.php
+blog/bbs/adm_write_update.php
+blog/bbs/download.php
+blog/lib/blog.lib.php
+blog/skin/basic/index.skin.php 
+blog/skin/basic/write.skin.php
+ 
+- 블로그의 로그인 url 경로 오류
+blog/skin/basic/head.skin.php
+ 
+- 블로그 생성후 내 블로그로 이동시키기
+blog/bbs/join_blog_ update.pjp
+ 
+- 설치 스크립트 오류
+blog/install/sql_gnuboard4_gblog.sql
+
+
+1.0.0 - 베타2
+
+그누보드 게시판에서 gblog로 게시글을 이동하는 경우, 
+bo_table, wr_id 값을 넣어둬야지 유용할 것 같아서
+게시글 테이블에 해당 field를 추가 했습니다.
+ 
+별도의 테이블로 관리할까 생각도 했는데, 
+그것보다는 post에 넣는게 db 작업이 적을거 같더라구요.
+ 
+ALTER TABLE `gb4_post` ADD `bo_table` VARCHAR( 255 ) NOT NULL ,
+ADD `wr_id` INT( 11 ) NOT NULL 
+---
+ 
+adm/blog/upgrade.php
+ 
+blog/common.php
+blog/index.php
+ 
+blog/bbs/adm_write_update.php
+blog/bbs/g4_to_gblog.update.php
+ 
+blog/js/blog.js
+ 
+ 
+- 블로그 작성할 때, 프로그램 코드나 javs script가 들어가면???
+blog/common.php
+blog/index.php
+ 
+ 
+ 
+- 게시글을 블로그에 등록하기
+blog/bbs/g4_to_gblog.update.php
+ 
+- 프로그램 오류 
+blog/bbs/adm_write_update.php
+ 
+- 사소한 msg 오류 수정 
+blog/js/blog.js
+
+
+1.0.0 - 베타1
+
+불당버젼으로 재구성한 것 입니다.
+
+관리 페이지의 몇곳을 제외한 prototype 코드를 모두 삭제하였고
+몇가지 버그를 수정하고 개선하였으며,
+파일의 위치 등도 모두 다 변경했습니다.
+
+워낙 수정사항이 많아서, 별도의 수정사항에 대한 코멘트는 하지 않습니다.
+
+
+###################################################
+
+* 0.2.1에서 blog의 id($gb4[blog_table]의 id 필드) = $member[mb_no]로 했습니다.
+지블로그는 1개의 회원아이디 = 1개의 블로그 입니다. 그런데, 0.2.1 이전 버젼과 같이
+blog_id <> mb_no 이면, blog_id의 작성자를 찾거나 할 때마다 left join이 되지 않기
+때문에 별도의 sql을 추가로 실행해야 하는 문제가 있습니다.
+어차피 블로그가 삭제되면 blog_id 중간에 구멍이 뚤릴 것을 굳이 다르게 할 이유없죠.
+
+blog_id = mb_no이기 때문에, 0.2.2와 이전버젼은 호환이 안됩니다. 
+데이터를 변환해야 합니다. 기존에 블로그 쓰시는 분들중 변환이 필요한 분은 별도문의하세요.
+
+* gblog 0.2.0는 그누보드 4.30.00 이후 버젼에 적합하게 수정되었습니다. 
+* db가 변경되었으므로 업그레이드를 하실 경우에는 관리자/지블로그/업그레이드 ...
+
+* 불당팩은 jquery를 기본 tool로 하고 있으며 prototype 코드는 차츰차츰 삭제될 것 입니다.
+
+###################################################
+
+ALTER TABLE `gb4_link` ADD `used` TINYINT( 4 ) NOT NULL ;
+
+ALTER TABLE `gb4_link` ADD INDEX `used` ( `used` ) 
+
+ALTER TABLE `gb4_blog` ADD `use_post` TINYINT( 4 ) NOT NULL AFTER `use_comment` ,
+ADD `use_guestbook` TINYINT( 4 ) NOT NULL AFTER `use_post` ;
+
+
+ALTER TABLE `gb4_file` ADD INDEX `blog_id` ( `blog_id` ) 
+
+ALTER TABLE `gb4_division` ADD INDEX `dv_rank` ( `dv_rank` ) 
+
+ALTER TABLE `gb4_skin` ADD INDEX `skin` ( `skin` ) 
+ALTER TABLE `gb4_post` DROP INDEX `blog_id` ,
+ADD INDEX `blog_id` ( `blog_id` , `category_id` , `secret` ) 
+ALTER TABLE `gb4_category` ADD INDEX `category_name` ( `category_name` ) 
+ALTER TABLE `gb4_tag` DROP INDEX `tag` ,
+ADD INDEX `tag` ( `tag` ) 
+ALTER TABLE `gb4_tag` ADD UNIQUE ( `tag` ) 
+
+  : 방문자 오류 수정
+    blog/visit_insert.inc.php
+
+  : link use flag 추가 (사용/사용하지 않음. db만 추가)
+    adm/blog/upgrade.php
+    blog/install/sql_gunuboard4_gblog.php
+    
+  : blog 쓰기 권한
+    adm/blog/upgrade.php
+    blog/join_blog.php
+    blog/join_blog_update.php
+    blog/install/sql_gunuboard4_gblog.php
+    lib/blog.lib.php
+
+  : db 튜닝
+    adm/blog/upgrade.php
+    blog/install/sql_gunuboard4_gblog.php
+
+  : 글수정시 태그입력창이 안나오는 오류 수정
+    blog/adm_write.php
+
+  : 태그관리 (태그변경)
+    blog/adm_tag_list.php
+    blog/adm_tag_copy.php
+    blog/adm_tag_copy_update.php
+
+    adm/blog/upgrade.php
+    blog/adm_tag_list.php
+    blog/adm_tag_copy.php
+    blog/adm_tag_copy_update.php
+    blog/adm_write.php
+    blog/join_blog.php
+    blog/join_blog_update.php
+    blog/visit_insert.inc.php
+    blog/install/sql_gunuboard4_gblog.php
+    lib/blog.lib.php 
+    
+0.2.6
+
+ALTER TABLE `gb4_config` ADD `gb_page_rows` TINYINT( 4 ) NOT NULL ;
+
+  : 관리자 페이지의 cookie 페이지 목록수를 gb_page_rows로 변경
+    blog/adm_post_list.php
+
+  : 관리자 페이지의 gb_page_rows를 사이트 관리자가 지정하게 변경
+    adm/blog/config.php
+    adm/blog/config_update.php 
+    adm/blog/upgrade.php
+    blog/install/sql_gunuboard4_gblog.php
+
+  : 태그관리자 (태그 수정은 아직 구현하지 않음)
+    blog/adm_tag_list.php (신규)
+    blog/adm_tag_list_delete.php (신규)
+    blog/admin.head.php
+    blog/img/icon_delete.gif (신규)
+    blog/img/icon_modify.gif (신규)
+
+  : 블로그 폐쇄 captcha를 prototype에서 jquery로 변경
+    img/captcha_loading.gif
+    js/jquery.kcaptcha.js
+    js/jquery.js
+    blog/adm_close_blog.php
+
+  : 블로그 폐쇄할 때 blog_skin_table에서 count 빼기 + 오류시 블로그 메인으로 이동
+    blog/adm_close_blog_update.php
+
+    adm/blog/config.php
+    adm/blog/config_update.php 
+    adm/blog/upgrade.php
+    blog/adm_close_blog.php
+    blog/adm_close_blog_update.php
+    blog/adm_post_list.php
+    blog/adm_tag_list.php (신규)
+    blog/adm_tag_list_delete.php (신규)
+    blog/admin.head.php
+    blog/img/icon_delete.gif (신규)
+    blog/img/icon_modify.gif (신규)
+    blog/install/sql_gunuboard4_gblog.php
+    img/captcha_loading.gif
+    js/jquery.kcaptcha.js
+    js/jquery.js
+
+0.2.5
+
+ALTER TABLE `gb4_blog` ADD `use_ccl` TINYINT( 4 ) NOT NULL AFTER `use_tag` ,
+ADD `use_autosource` TINYINT( 4 ) NOT NULL AFTER `use_ccl` ;
+
+ALTER TABLE `gb4_blog` ADD `use_tag` TINYINT( 4 ) NOT NULL AFTER `use_trackback` ;
+
+  : 글쓰기 화면 style 변경 (padding을 줄이고, 제목을 98%로)
+    skin/blog/basic/write.skin.php
+  
+  : 블로그 폐쇄
+    blog/adm_close_blog.php (신규)
+    blog/adm_close_blog_update.php (신규)
+
+  : 블로그 폐쇄 (메뉴만 추가)
+    adm/blog/admin.head.php
+
+  : 업그레이드 오류 수정
+    adm/blog/upgrade.php
+
+  : ccl, auto source 설정만 추가 (use_ccl, use_autosource)
+    adm/blog/upgrade.php
+    blog/join_blog.php
+    blog/join_blog_update.php
+    blog/install/sql_gunuboard4_gblog.php
+
+    : 태그관리 메뉴만 추가 (ㅠ..ㅠ...)
+    blog/admin.head.php
+
+    : 태그사용 설정(use_tag)을 블로그 페이지에 적용
+    blog/adm_write.php
+    blog/sidebar.php
+    skin/blog/basic/head.skin.php
+    skin/blog/basic/sidebar.skin.php
+    skin/blog/basic/write.skin.php
+
+    : 태그사용 설정(use_tag)을 블로그 관리자에 추가 
+    adm/blog/upgrade.php
+    blog/join_blog.php
+    blog/join_blog_update.php
+    blog/install/sql_gunuboard4_gblog.php
+
+    : blog 관리자 menu에 블로그 메인 링크 추가 (adm_menu, css width=150px)
+    blog/admin.style.css
+
+    : 달력에서 글쓰기가 없는 날에는 링크가 나오지 않게 하기 (    http://sir.co.kr/bbs/board.php?bo_table=gblog_tip&wr_id=111)
+    skin/blog/basic/calendar.skin.php
+
+    : 로그인창을 site main에서 blog main으로 변경
+    blog/_head.php
+    blog/_tail.php
+    blog/login.php (원본과 동일)
+
+    : get_blog_sideview 함수 삭제 (sideview는 1개로 통일)
+    blog/comment.php
+    blog/guestbook.php
+    lib/blog.lib.php
+    skin/blog/basic/sidebar.skin.php
+    skin/blog/basic/guestbook_list.skin.php
+
+    : 내블로그 만들기가 아닌 경우 도메인/blog/로 접속하면 블로그 홈으로 이동하게
+    blog/_common.sub.php
+
+    : 프로필 이미지 클릭시 창이 안뜨고 블로그 홈으로 가게 (누가 블로그 이미지를 봐요??)
+    skin/blog/basic/sidebar.skin.php
+
+    adm/blog/upgrade.php
+    blog/_common.sub.php
+    blog/_head.php
+    blog/_tail.php
+    blog/admin.style.css
+    blog/adm_close_blog.php (신규)
+    blog/adm_close_blog_update.php (신규)
+    blog/adm_write.php
+    blog/comment.php
+    blog/guestbook.php
+    blog/join_blog.php
+    blog/join_blog_update.php 
+    blog/login.php (원본과 동일)
+    blog/sidebar.php
+    lib/blog.lib.php
+    skin/blog/basic/calendar.skin.php
+    skin/blog/basic/head.skin.php
+    skin/blog/basic/sidebar.skin.php
+    skin/blog/basic/guestbook_list.skin.php
+    skin/blog/basic/write.skin.php 
+
+0.2.4
+
+    : tail.skin.php에서 tail.sub.php의 코드 삭제
+    skin/blog/basic/tail.skin.php
+
+    : tags.php 오류 수정 (공통 head.sub.php 등을 쓰게)
+    blog/tags.php
+
+    : guest book captcha 변경 
+    blog/guestbook.php
+    blog/guestbook_update.php
+    js/blog.js
+    blog/skin/basic/guestbook_list.skin.php
+
+    : guest book (wrest.js 오류수정. 기본 _head.php 사용하게)
+    blog/guestbook.php
+    blog/guestbook_list.php (삭제)
+   
+    : comment.skin.php 오류 (아드리나. 이거는 나중에 싹 고칠 겁니다)
+    blog/skin/basic/comment.skin.php
+
+    : utf-8 변환오류 (아드리나)
+    blog/install/sql_gnuboard4_gblog.sql
+
+    : 로그인창을 site main에서 blog main으로 변경
+    blog/login.php (g4의 bbs/login.php를 그대로 include 하도록 함)
+    blog/_head.php
+    blog/_tail.php
+    skin/blog/basic/head.skin.php
+
+    : admin main에 블로그 홈으로 가기 메뉴추가 (블로그 만들기 싫은 경우를 위해)
+    blog/admin.head.php    
+
+    : 설치오류 수정 (아드리나)
+    blog/install/install_config.php
+    blog/install/install_db.php
+
+    : css style 수정 (cursor:hand => cursor:pointer; )
+    blog/admin.head.php
+
+    : rss 오류 수정 (자존심님. http://stnzone.com/gboard/blog/?id=893)
+    blog/rss.php
+
+    : 불필요 global 변수 삭제 (get_full_url)
+    lib/blog.lib.php
+    
+    : 불필요 코드삭제
+    blog/norobot.inc.php (삭제)
+    blog/norobot_check.inc.php (삭제)
+
+    : 블로그 글쓰기를 할 때 java script 오류 ( png.js가 include 되지 않아서 발생)
+    blog/head.sub.php (png.js include 삭제)
+    skin/blog/basic/head.skin.php (png.js include 추가)
+
+    : 글쓰기 스킨 수정 (450 -> 450px, width=600px -> 100%, 글쓰기 메시지 삭제)
+    skin/blog/basic/write.skin.php
+
+    blog/_head.php
+    blog/_tail.php
+    blog/admin.head.php
+    blog/guestbook.php
+    blog/head.sub.php
+    blog/login.php
+    blog/rss.php
+    blog/tags.php
+    blog/install/install_config.php
+    blog/install/install_db.php
+    blog/install/sql_gnuboard4_gblog.sql
+    lib/blog.lib.php
+    blog/skin/basic/comment.skin.php
+    blog/skin/basic/guestbook_list.skin.php
+    skin/blog/basic/head.skin.php
+    skin/blog/basic/tail.skin.php
+    skin/blog/basic/write.skin.php
+
+    blog/guestbook_list.php (삭제)
+    blog/norobot.inc.php (삭제)
+    blog/norobot_check.inc.php (삭제) 
+
+0.2.3
+
+    : 비회원 글쓰기에 4.30.00 버젼의 captcha 적용
+    blog/comment.php
+    blog/comment_update.php
+    js/blog.js
+    skin/blog/basic/comment.skin.php
+    skin/blog/basic/index.skin.php
+    
+0.2.2
+
+    : 블로그 관리에서 글쓰기 메뉴 삭제 (블로그 기본창에 버튼이 있고 기본 화면에서 쓰기를 하기 때문)
+    blog/admin.head.php
+    
+    : 글쓰기 스킨 수정 (글쓰기 버튼 이미지를 스킨디렉토리로, 글쓰기에 목록버튼 추가)
+    skin/blog/basic/write.gif
+    skin/blog/basic/img/btn_ok.gif
+    skin/blog/basic/img/btn_list.gif
+
+    : 최근글에 글쓴이가 안나오는 오류 수정 (blog테이블에서 writer를 삭제했거든요^^)
+    lib/blog.lib.php
+
+    : blog_id = member_id 로 변경 ???
+    blog/join_blog_update.php
+
+    : 설치오류 수정
+    gblog.config.php
+
+    : style sheet 수정 (5 -> 5px와 같이 단위 누락이 없게)
+    skin/blog/basic/style.css
+
+    gblog.config.php
+    blog/admin.head.php
+    blog/join_blog_update.php
+    lib/blog.lib.php
+    skin/blog/basic/style.css
+    skin/blog/basic/write.gif
+    skin/blog/basic/img/btn_list.gif
+    skin/blog/basic/img/btn_ok.gif 
+
+* 0.2.1 부터 해당 수정사항이 어떤 파일을 변경했는지와 전체변경을 모두 표시합니다.
+* head.skin.php에서 시스템 공통항목(그누의 head.sub.php를) 구분했습니다. 블로그의 헤드스킨 제작에 더이상 시스템적인 부분을 고려하지 않아도 됩니다. 
+
+0.2.1
+
+ALTER TABLE `gb4_config` DROP `root` 
+
+    : 글쓰기를 관리자 메뉴에서 분리 (글쓸때마다 관리자 메뉴를 보게 하는건 아니죠^^)
+    skin/blog/basic/write.skin.php
+    blog/adm_write.php
+
+    : 그누보드의 head.sub.php를 gblog에서도 그대로 사용하게 (관리가 쉽게)
+    gblog.head.php
+    blog/head.sub.php
+
+    : $gb4[root]를 gblog.config.php에서 설정하게 수정 (무조건 $gb4[root] = $g4[path])
+    gblog.config.php
+    adm/blog/config_update.php
+    adm/blog/upgrade.php
+    blog/install/install_db.php
+    blog/install/sql_gnuboard4_gblog.sql
+
+    : sidebar.php에서 스킨 부분을 분리해서 head.skin.php로 이동 (스킨제작이 쉽게)
+    blog/sidebar.php
+    skin/blog/basic/head.skin.php
+
+    : gblog.config.php 파일 0.2.0에서 발생시킨 오류 수정
+    gblog.config.php
+
+    : head.skin.php를 blog.head.sub.php와 head.skin.php로 분리 
+    blog/head.sub.php
+    skin/blog/basic/head.skin.php
+
+    : 블로그 필명 = 그누보드 닉네임 (관리자에서만 삭제하고 코드에서는 유지. 편의를 위해)
+    blog/_common.sub.php ($current[writer] = $mb[mb_nick]으로 이곳에서 정의함)
+    blog/join_blog.php
+    blog/join_blog_update.php
+
+    : 블로그 제목에서 html 태그를 삭제 (<b>제목이야</b> -> 제목이야)
+    blog/join_blog_update.php
+
+    : 랜덤블로그 수정 (소스코드 튜닝, 버튼에서 랜덤하게 이동한 블로그 주소가 안보이게)
+    lib/blog.lib.php
+
+    gblog.config.php
+    adm/blog/config_update.php
+    adm/blog/upgrade.php
+    blog/_common.sub.php 
+    blog/adm_write.php
+    blog/head.sub.php
+    blog/index.php
+    blog/join_blog.php
+    blog/join_blog_update.php
+    blog/sidebar.php
+    blog/install/install_db.php
+    blog/install/sql_gnuboard4_gblog.sql
+    lib/blog.lib.php
+    skin/blog/basic/head.skin.php
+    skin/blog/basic/write.skin.php 
+
+0.2.0 
+    : gblog 0.2.0는 그누보드 4.30.00 이후 버젼에 적합하게 수정되었습니다. 
+    : db가 변경되었으므로 업그레이드를 하실 경우에는 관리자/지블로그/업그레이드 ...
+
+ALTER TABLE `gb4_blog` DROP `editor_mode` ;
+
+CREATE TABLE `gb4_config` ( 
+`root` VARCHAR( 255 ) NOT NULL ,
+`make_level` TINYINT( 4 ) NOT NULL ,
+`make_point` TINYINT( 4 ) NOT NULL ,
+`upload_blog_file_size` INT( 11 ) NOT NULL ,
+`upload_file_number` INT( 11 ) NOT NULL ,
+`upload_one_file_size` INT( 11 ) NOT NULL ,
+`profile_image_size` INT( 11 ) NOT NULL ,
+`top_image_size` INT( 11 ) NOT NULL ,
+`background_image_size` INT( 11 ) NOT NULL ,
+`use_random_blog` TINYINT( 4 ) NOT NULL ,
+`use_permalink` VARCHAR( 12 ) NOT NULL ,
+`ampersand` VARCHAR( 1 ) NOT NULL 
+)
+
+
+ALTER TABLE `gb4_visit` CHANGE `vi_id` `vi_id` INT( 11 ) NOT NULL AUTO_INCREMENT 
+    
+    : 회원이 잘못된 블로그 주소를 넣었을 때 블로그생성으로 가는 오류 수정
+
+    : 블로그 편집기 선택 삭제 (무조건 웹 편집기 쓰세욤~!!!)
+    : 환경설정 후 url을 못찾는 문제 (urldecode를 해줘야지 함)
+    : 지블로그 라이센스 파일 추가 (LICENSE_GBLOG)
+    : 지블로그 설정을 file(extend/gblog.config.php)에서 db로 변경 (gb4[config_table])
+    : gblog 처음 설치시 그누보드의 설치를 먼저 확인한 후 gblog 설치를 확인
+    : 방문자 튜닝 (불당팩 bbs/visit_insert.inc.php 참조)
+    : 비회원이 domain/blog 로 접속하면 로그인하라고 alert 보내는거 (blog home으로 이동하게)
+    : 배포판에서 prototype.js를 삭제 (그누에 기본으로 들어 있기 때문)
+    : config 파일의 테이블 이름을 알파벳 순으로 정리
+    : single mode 기능 삭제 (혼자서 블로깅 할꺼면 태터툴즈 쓰세욤~!)
+    : 같은 카테고리 이름이 있을 경우 글 없슴으로 나오는 오류 (http://sir.co.kr/bbs/board.php?bo_table=gblog_tip&wr_id=172)
+    : 블로그 생성후 path 오류 ($url이 설정되지 않아서 생기는 오류)
+    : 이올린 삭제 오류 (http://sir.co.kr/bbs/board.php?bo_table=gblog_tip&wr_id=180)
+    : 쓰기 스킨 분리 
+    : geditor를 cheditor로 변경
+    : 쓰기전에 내용이 있는지를 확인 (그누보드의 코드를 차용...)
+    : 설치 스크립트 수정 ($gb4[division_table])
+    : geditor/guploader 코드 삭제
+
+    gblog.config.php
+    LICENSE_GBLOG
+    adm/blog/config.php
+    adm/blog/config_update.php
+    adm/blog/upgrade.php
+    blog/_common.sub.php
+    blog/adm_delete.php
+    blog/adm_design_update.php
+    blog/adm_write.php
+    blog/calendar.php
+    blog/index.php
+    blog/join_blog.php
+    blog/join_blog_update.php
+    blog/install/index.php
+    blog/install/install_config.php
+    blog/install/install_db.php
+    blog/install/sql_gnuboard4_gblog.sql
+    blog/visit_insert.inc.php
+    lib/blog.lib.php
+    skin/blog/basic/write.skin.php
+
+    geditor/* (deleted)
+    guploader/* (deleted)
+    js/prototype.js (deleted)
+
+###################################################
+
+    프로그램 : 곱슬최씨 (curlychoi@gmail.com)
+    스킨제작 : 오리주둥이 (mywoweb@gmail.com)
+
+    http://sir.co.kr
+
+###################################################
+
+0.1.2
+    : basic 스킨 경로 오류수정 (0.1.1 에서의 tail.skin.php 누락부분)
+    : 파일첨부 링크 오류수정
+    : 이올린 등록 관련함수 파일 분리
+    : _common.sub.php 에서 필요없는 구문 제거
+    : 블로그 만들기 경로 오류수정
+    : $gb4[root] 변수 생성 구분 $PHP_SELF 에서 $_SERVER[PHP_SELF] 로 변경
+    : RSS 일부 공개시 strip_tags() 함수 적용
+    : RSS 미공개시 xml 형태의 에러메세지 출력
+    : adm/blog/skin.php 의 <form> 태그 구문 삭제
+    : adm/blog/blog_update.php 에 방명록 삭제 구문 추가
+    : 레이아웃-관리자 사라지는 버그 수정
+    : 레이아웃 초기화 기능 추가
+
+    adm/blog/config_update.php
+    adm/blog/skin.php
+    adm/blog/blog_update.php
+    lib/blog.lib.php
+    lib/eolin.lib.php
+    blog/install/install_db.php
+    blog/_common.sub.php
+    blog/adm_write.php
+    blog/adm_write_update.php
+    blog/eolin_sync.php
+    blog/rss.php
+    blog/adm_layout.php
+    blog/adm_layout_update.php
+    skin/blog/basic/tail.skin.php
+
+0.1.1
+    : 블로그 만들기 이동 경로 오류 수정
+    : revision_charset() 함수 오류 수정
+    : install 시 extend/gblog.extend.php 파일 생성 구문 오류 수정
+    : basic 스킨 경로 오류수정
+    : 블로그 메인 검색 추가
+    : 블로그 메인 모듈 분리
+
+    lib/blog.lib.php
+    blog/_common.sub.php
+    blog/install/install_db.php
+    skin/blog/basic/head.skin.php
+    skin/blog/basic/tail.skin.php
+    gblog.head.php
+    gblog.index.php
+    gblog.new_bloger.php
+    gblog.new_post.php
+    gblog.post_category.php
+    gblog.search_form.php
+    gblog.search.php
+
+0.1.0
+    : 이올린 발행시 이미지 수집 되도록 수정
+    : 이올린 발행 체크 default
+    : revision_charset() 함수 오류 수정
+
+    lib/blog.lib.php
+    blog/eolin_sync.php
+    blog/adm_write.php
+
+0.0.9
+    : rss 의 profile_image_url 경로 오류 수정
+    : 최고관리자의 스킨 미리보기 오류 수정
+    : 달력오류 수정
+    : 카운트 조정 메뉴 추가
+    : 이올린(eolin.com) 발행 기능 추가
+    : 파일 이름변경
+    : 트랙백 전송시 블로그 주소 오류 수정
+    : revision_charset() 함수오류수정
+    : GEditor 버젼업 (창 크기조절 버튼 추가)
+
+    adm/admin.menu700.php
+    adm/blog/sync.php
+    adm/blog/skin.php
+    lib/blog.lib.php
+    geditor/geditor.js
+    blog/sync.php (삭제)
+    blog/config.php -> blog/_common.sub.php
+    blog/header.php -> blog/_header.php
+    blog/eolin_sync.php
+    blog/*
+
+0.0.8
+    : gblog.extend.php 파일 생성시 오류 수정
+    : '기본에디터 설정' 오류 수정
+    : 전체 경로 수정
+    : 포스트 영역 가로 사이즈 넓게/좁게 옵션
+    : 첨부 이미지 가로 사이즈 옵션
+    : 태그구름 line-height 조정
+
+    adm/blog/config_update.php
+    js/blog.js
+    blog/config.php
+    blog/index.php
+    blog/admin.head.php
+    blog/adm_write.php
+    blog/adm_design.php
+    blog/adm_design_update.php
+    blog/guestbook.php
+    blog/guestbook_list.php
+    blog/tags.php
+    blog/rss.php
+    skin/blog/basic/head.skin.php
+    skin/blog/basic/tail.skin.php
+    skin/blog/basic/sidebar.skin.php
+    skin/blog/basic/tags.skin.css
+    skin/blog/basic/style.css
+
+
+0.0.7
+    : 방명록 쿠키적용 오류 수정
+    : 비회원 방명록 글 수정 오류 수정
+    : 설치시 방명록 및 글주제 테이블 생성 오류 수정
+    : 최상단 메뉴색 관리 추가
+    : 태그구름 페이지와 사이드바의 태그구름 변수명 중복 수정
+    : 방명록 댓글에 줄바꿈 및 오토링크 추가
+    : 랜덤블로그 이동시 글이 하나도 없는 블로그는 제외
+    : 싱글모드 검색 결과 오류 수정
+    : rss 주소 오류 수정
+    : tag 에 rel 추 코드 추가하여 메타블로그에서 tag 수집 원할하게함
+    : 스킨 미리보기 오류 수정
+    : 엮인글(트랙백) 전송시 url 오류 수정
+    : 검색 오류 수정
+    : G-Editor 새로운 버젼으로 교체
+    : G-Editor 와 G-Uploader 분리
+
+    blog/rss.php
+    blog/index.php
+    blog/tags.php
+    blog/adm_design.php
+    blog/adm_design_update.php
+    blog/guestbook_list.php
+    blog/adm_write_update.php
+    skin/blog/basic/guestbook_list.skin.php
+    skin/blog/basic/tags.skin.php
+    skin/blog/basic/tail.skin.php
+    lib/blog.lib.php
+    js/blog.js
+    geditor/*
+    guploader/*
+
+
+0.0.6
+    : 회원아이콘 출력 안되던 문제 해결
+    : tags.php 에서 include("sidebar.php") 위치 변경
+    : 관리자 stylesheet 변경
+    : 싱글모드 rss 주소 오류 수정
+    : 엮인글 없을경우 버튼 에러 수정
+    : 최고관리자 회원블로그 이동 퍼머링크 적용
+    : 상단이미지 png 업로드 수정
+    : 엮인글(Trackback) 발송시 주소 오류 수정
+    : 파일첨부기능 개선
+    : 블로그 총 사용량 출력 에러 수정
+    : 블로그 삭제시 첨부파일도 함께 삭제
+    : 블로그를 생성하지 않고 싱글모드 사용시 블로그 만들기 무한반복 수정
+    : 글주제 기능 추가 (블로그 메인에 노출)
+    : 방명록 추가
+    : 회원 댓글 등록시 홈페이지 주소 오류 수정
+    : 비밀 댓글 등록시 등록자 이름 비공개 -> 이름만 공개 변경
+    : 댓글의 댓글 수정 안되는 버그 수정
+
+    gblog.config.php
+    adm/blog/_common.php
+    adm/blog/division.php
+    adm/blog/division_update.php
+    adm/blog/blog.php
+    adm/blog/blog_update.php
+    adm/blog/config.php
+    adm/blog/config_update.php
+    blog/.htaccess
+    blog/config.php
+    blog/adm_write.php
+    blog/adm_write_update.php
+    blog/adm_design.php
+    blog/adm_design_update.php
+    blog/admin.style.css
+    blog/tags.php
+    blog/index.php
+    blog/download.php
+    blog/join_blog.php
+    blog/comment.php
+    blog/guestbook.php
+    lib/blog.lib.php
+    skin/blog/basic/index.skin.php
+    skin/blog/basic/guestbook.skin.php
+    skin/blog/basic/comment.skin.php
+    skin/blog/basic/style.css
+    geditor/geditor.js
+
+
+
+0.0.5
+    : 태그구름 클릭시 최신글목록에 비공개 글이 출력되는 버그 수정
+    : 달력 클릭시 1월이 01로 나와야하나 1로 나오는 오류 수정
+    : GBlog 로고 및 기본스킨 디자인 변경
+      SIR 회원 오리주둥이님께서 GPL 에 참여하고 싶다는 의사를 밝히고 기본스킨을 디자인 해주셨습니다.
+      감사합니다.
+    : 비밀글에 달린 댓글이 사이드바 최근 댓글목록에 출력되는 버그 수정
+      블로그 주인이 로그인했을 경우 본인에게만 출력됨
+    : index.php 에서 include_once("../head.sub.php"); 와 include_once("./sidebar.php"); 의 위치 변경
+    : gb4_blog 의 sidebar_post_length, sidebar_comment_length, sidebar_trackback_length 의 default 값 기본스킨에 맞게 변경
+    : 상단 및 프로필 이미지 변경시 캐쉬에 남아 새로고침 전에는 적용되지 않는 점 수정 "<img src='<?=$이미지경로?>?<?=time()?>" (돌아해몽님 팁)
+    : G-EDitor 에서 HTML Source 클릭 해제 후 첨부파일 에디터에 삽입 작동 안하는 오류 수정
+    : 파일업로드 1,024 byte 이하 일경우 0 Kbyte 로 출력되던것을 byte 단위로 수정
+    : 링크관리 버그 수정
+    : 달력에 비밀글 작성날짜도 포스팅 날짜로 체크되던 것 수정
+    : 글 관리 페이지 '전체' 를 '분류없음' 으로 수정
+    : 글 관리 페이지 수정
+      한 페이지에 출력할 글 목록 갯수 설정 추가
+      글상태 다중 수정/삭제 기능 추가
+      공개,비공개글 각각의 배경색 효과 추가
+    : blog/adm_post_change.php 파일 추가
+    : 사용자정의 사이드바에 제목 추가
+    : 디자인설정 - 배경이미지 반복 여부 옵션 삭제
+      고정 배경 이미지, 반복 배경 이미지 분리
+      blog/config.php 에 $current['background_repeat_path'] 와 $current['background_repeat_url'] 추가
+    : 기본설정 - 기본 에디터 설정 추가
+    : 태그 15단계에서 5단계로 조정
+    : gblog.config.php 에 환경변서 $gb4['blog_url'] 추가
+    : 블로그를 혼자 사용할 경우 주소에 회원아이디가 들어가지 않는 싱글모드 추가
+
+
+    gblog.config.php
+    adm/blog/config.php
+    adm/blog/config_update.php
+    blog/install/index.php
+    blog/install/install_db.php
+    blog/join_blog.php
+    blog/join_blog_update.php
+    blog/config.php
+    blog/index.php
+    blog/calendar.php
+    blog/sidebar.php
+    blog/calendar.php
+    blog/adm_design.php
+    blog/adm_design_update.php
+    blog/adm_delete.php
+    blog/adm_post_change.php
+    blog/adm_post_list.php
+    blog/adm_link.php
+    blog/adm_link_update.php
+    lib/blog.lib.php
+    skin/blog/basic
+    geditor/geditor.js
+
+
+
+
+0.0.4
+    : 태그구름 출력 루틴 수정
+    : 엮인글 내용에 htmlspecialchars() 적용
+    : 댓글 본문에 url_auto_link() 적용
+    : 검색 문제 해결
+    : 댓글 갯수 정보 업데이트 누락부분 추가
+    : 링크 관리 오류 수정
+    : gb4_blog 테이블의 카운터 필드 구조 변경 (종류별로 나눔)
+    : 최고관리자 블로그 업그레이드 메뉴 신설
+    : 본문 가로사이즈가 클경우 밑으로 떨어지는 오류 수정
+    : 프로필 이미지 가로,세로 크기 제한 제거
+    : 페이징 에러 수정
+    : 검색결과 페이지별 출력수 -> 목록별 출력수 변경
+    : 프로필 PNG 업로드 안되는 것 수정
+    : 엮인글 출력 cut_str() 적용, 글자깨짐현상 때문.
+    : $g4['url'] 변수 사용 안함. $gb4['path'] 환경변수 추가
+
+    lib/blog.lib.php
+    blog/join_blog_update.php
+    blog/index.php
+    blog/sidebar.php
+    blog/comment.php
+    blog/comment_update.php
+    blog/adm_link.php
+    blog/adm_link_update.php
+    blog/adm_link_category_update.php
+    blog/visit_insert.inc.php
+    skin/blog/basic/head.skin.php
+    skin/blog/basic/tail.skin.php
+    skin/blog/basic/style.css
+    adm/admin.menu700.php
+    adm/blog/upgrade.php
+    geditor
+
+
+0.0.3 (07.01.10)
+    : 스킨에서 글 nl2br 함수 제거
+    : 글작성 날짜, 달력에 볼드 처리 안되던 것 수정
+    : 개별 블로그 기본환경 설정에 head, tail 추가
+    : join_blog_update.php 에서 use_table = 'gb4_post' 를 use_table = '{$gb4['blog_table']}' 로 변경
+    : 사이드바 태그 출력 방법과 갯수, 레벨 간격 추가
+    : 태그 출력 루틴 변경
+    : 개별 블로그 태그 구름 페이지 추가
+    : 파이어폭스에서 링크관리 수정 안되던 오류 해결
+    : index.php 에 있던 각종 이미지 경로 설정 코드를 config.php 로 이동
+    : 블로그 개설 가능한 회원 1레벨 제거
+    : 링크 "기타" 분류 출력되지 않았던 문제 해결
+    : 태그 갯수 맞추는 get_sync_tag($content, $tag) 함수 추가
+      div 등의 태그 갯수가 맞지 않을 때 블로그 모양이 망가지는 것을 해결
+    : 프로필 이미지 가로,세로 픽셀제한 제거
+    : 검색에러 수정
+    : convert_charset 에서 일부 euc-kr 로 되어있는 것을 CP949 로 수정
+    : 자동등록방지코드 그누보드 설정과 분리
+    : 블로그 총 용량 설정 및 제한
+    : blog.js 에 profile_image_window() 함수 추가
+    : 블로그별 관리자 > 환경설정 > 레이아웃 설정 추가
+    : 분류 없을시 '전체' 로 나오던 것 '분류없음'으로 수정
+    : 링크 및 분류관리에서 항목을 선택하지 않고 위치변경 버튼을 눌렀을 때 자바스크립트 오류 수정
+    : GBlog 설치시 .htaccess 때문에 blog/install 로 접근시 인스톨 안되는 문제 해결 (슬래쉬 뭍여줌)
+    : 글 수정시 html 문제 해결
+    : 첨부파일 용량 설정시 0 이면 무제한 코드 빠진것 추가
+    : 사용자별 StyleSheet 업로드 기능 추가
+    : 변수명 스타일 통일을 위해  $current['profile_image'] 등을 $current['profile_image_url'] 로 _url 추가
+    : 본문의 상단, 하단 입력 항목 추가
+    : prototype.js 추가로 blog.js 코드 스타일 변경
+    : 링크관리 구현 ajax 로 변경
+    : 페이지별, 목록별 글 출력수 1 이상 설정 검사 추가
+
+    js/prototype.js
+    js/blog.js
+    blog/js/
+    blog/adm_category.php
+    blog/adm_link.php
+    blog/adm_link_category.php
+    blog/adm_layout.php
+    blog/adm_layout_update.php
+    blog/adm_link.php
+    blog/sidebar.php
+    blog/norobot.inc.php
+    blog/norobot_check.inc.php
+    blog/install/install_db.php
+    blog/tags.php
+    blog/config.php
+    blog/adm_design.php
+    blog/adm_design_update.php
+    blog/adm_link.php
+    blog/adm_link_update.php
+    blog/adm_write_update.php
+    blog/join_blog.php
+    blog/join_blog_update.php
+    blog/index.php
+    blog/comment_update.php
+    skin/blog/basic/index.skin.php
+    skin/blog/basic/tags.skin.php
+    skin/blog/basic/sidebar.skin.php
+    lib/blog.lib.php
+    adm/blog/config.php
+    adm/blog/config_update.php
+
+0.0.2 (07.01.04)
+    : 베타 0.0.2 배포
+
+0.0.1 (06.12.29)
+    : 베타 0.0.1 배포
